@@ -16,5 +16,6 @@
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
         <DatePicker DataContext="{Binding Date}" HorizontalAlignment="Left" Margin="10,104,0,0" VerticalAlignment="Top"/>
         <TimePicker DataContext="{Binding Time}" HorizontalAlignment="Left" Margin="10,185,0,0" VerticalAlignment="Top"/>
+        <AppBarButton Command="{Binding CreateEventCommand}" x:Name="appBarButton" HorizontalAlignment="Left" Icon="Accept" Label="appbarbutton" Margin="10,278,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Page>

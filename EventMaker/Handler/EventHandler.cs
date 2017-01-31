@@ -9,14 +9,14 @@ using EventMaker.Converter;
 
 namespace EventMaker.Handler
 {
-    class EventHandler
+    class myEventHandler
     {
         /*Properties*/
         public EventViewModel EventViewModel { get; set; }
 
 
         /*Constroctur*/
-        public EventHandler(EventViewModel evm)
+        public myEventHandler(EventViewModel evm)
         {
             this.EventViewModel = evm;
         }
