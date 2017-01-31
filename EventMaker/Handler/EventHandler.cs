@@ -25,8 +25,7 @@ namespace EventMaker.Handler
         public void CreateEvent()
         {
             Event nyEvent = new Event(EventViewModel.Id, EventViewModel.Name, EventViewModel.Description, EventViewModel.Place, DateTimeConverter.DateTimeOffsetAndTimeSetToDateTime(EventViewModel._date, EventViewModel._time));
-             
-          
+
         }
     }
 }
