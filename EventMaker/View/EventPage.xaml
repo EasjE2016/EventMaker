@@ -38,9 +38,16 @@
         </Grid>
 
         <Grid Grid.Column="0" Grid.Row="1">
-            <ListView ItemsSource="{Binding Eventsingelton.Events}" Header="Events">
+            <ListView SelectedItem="{Binding SelectedEvent, Mode=TwoWay}" ItemsSource="{Binding Eventsingelton.Events}" Header="Events">
             </ListView>
         </Grid>
+
+        <Grid Grid.Column="1" Grid.Row="1">
+            
+            <TextBlock  Text="{Binding SelectedEvent}"></TextBlock>
+            <Button Command="{Binding DeleteEventComand}"></Button>
+        </Grid>
+
     </Grid>
 
 

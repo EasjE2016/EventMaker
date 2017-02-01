@@ -30,18 +30,14 @@ namespace EventMaker.Persistency
 
         public static async void HentDataFraDiskAsync()
         {
-            try
-            {
+           
                 localfolder = ApplicationData.Current.LocalFolder;
                 StorageFile file = await localfolder.GetFileAsync(filnavn);
                 string jsonText = await FileIO.ReadTextAsync(file);
                 EventCatalogSingleton.Instance.Events.Clear();
                 EventCatalogSingleton.Instance.IndsetJson(jsonText);
-            }
-            catch (Exception)
-            {
-
-            }
+            
+         
         }
 
 

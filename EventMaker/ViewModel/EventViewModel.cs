@@ -8,11 +8,14 @@ using System.Windows.Input;
 using EventMaker.Common;
 using EventMaker.Handler;
 using EventMaker.Persistency;
+using System.ComponentModel;
 
 namespace EventMaker.ViewModel
 {
-    class EventViewModel
+    class EventViewModel : INotifyPropertyChanged
     {
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         /*Singelton*/
         private EventCatalogSingleton _eventSingleton;
@@ -24,9 +27,6 @@ namespace EventMaker.ViewModel
         }
 
         /*Properties*/
-     
-
-
 
           public int Id { get; set; }
         public string Name { get; set; }
@@ -36,8 +36,23 @@ namespace EventMaker.ViewModel
         public TimeSpan _time { get; set; }
         public myEventHandler eventHandler { get; set; }
 
+        /*Selected Event*/
+        private Event selectedEvent;
+
+  
+
+        public Event SelectedEvent
+        {
+            get { return selectedEvent; }
+            set { selectedEvent = value;
+                OnPropertyChanged(nameof(SelectedEvent));
+            }
+        }
+
+
         /*Commands Properties*/
         public ICommand CreateEventCommand { get; set; }
+        public ICommand DeleteEventComand { get; set; }
 
 
 
@@ -53,10 +68,21 @@ namespace EventMaker.ViewModel
             /*RelayCommand og refrence til handler*/
             eventHandler = new myEventHandler(this);
 
-            CreateEventCommand = new RelayCommand(eventHandler.CreateEvent, null);
+         
 
+            CreateEventCommand = new RelayCommand(eventHandler.CreateEvent, null);
+            DeleteEventComand = new RelayCommand(eventHandler.DeleteEvent, null);
             PersistencyService.HentDataFraDiskAsync();
 
+        }
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this,
+                    new PropertyChangedEventArgs(propertyName));
+            }
         }
 
     }

@@ -32,5 +32,11 @@ namespace EventMaker.Handler
 
             PersistencyService.GemDataTilAsync();
         }
+
+        public void DeleteEvent()
+        {
+            EventCatalogSingleton.Instance.Events.Remove(EventViewModel.SelectedEvent);
+            PersistencyService.GemDataTilAsync();
+        }
     }
 }

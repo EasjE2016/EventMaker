@@ -32,10 +32,6 @@ namespace EventMaker.Model
             Events = new ObservableCollection<Event>();
         }
 
-        public void addEvent(Event MyEvent)
-        {
-            this.Events.Add(MyEvent);
-        }
 
         /// <summary>
         /// Giver mig Json format for events object
@@ -43,7 +39,7 @@ namespace EventMaker.Model
         /// <returns></returns>
         public string getJson()
         {
-            string json = JsonConvert.SerializeObject(this);
+            string json = JsonConvert.SerializeObject(Events);
             return json;
         }
 
@@ -57,8 +53,8 @@ namespace EventMaker.Model
 
             foreach (var EventItem in nyListe)
             {
-                this.addEvent(EventItem);
-                //this.Events.Add(EventItem);
+                
+                this.Events.Add(EventItem);
             }
         }
 
