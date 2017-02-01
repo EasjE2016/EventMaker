@@ -21,7 +21,7 @@ namespace EventMaker.Model
             this.Name = Name;
             this.Description = Description;
             this.Place = Place;
-            this.DateTime = DateTime;
+            this.DateTime = Datetime;
         }
 
         public override string ToString()
