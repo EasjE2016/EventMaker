@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace EventMaker.Model
 {
@@ -35,5 +36,31 @@ namespace EventMaker.Model
         {
             this.Events.Add(MyEvent);
         }
+
+        /// <summary>
+        /// Giver mig Json format for events object
+        /// </summary>
+        /// <returns></returns>
+        public string getJson()
+        {
+            string json = JsonConvert.SerializeObject(this);
+            return json;
+        }
+
+        /// <summary>
+        /// En methode som modtager en string af json og deserializerer til objekter. 
+        /// </summary>
+        /// <param name="jsonText"></param>
+        public void IndsetJson(string jsonText)
+        {
+            List<Event> nyListe = JsonConvert.DeserializeObject<List<Event>>(jsonText);
+
+            foreach (var EventItem in nyListe)
+            {
+                this.addEvent(EventItem);
+                //this.Events.Add(EventItem);
+            }
+        }
+
     }
 }

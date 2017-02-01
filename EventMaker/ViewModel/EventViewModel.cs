@@ -7,6 +7,7 @@ using EventMaker.Model;
 using System.Windows.Input;
 using EventMaker.Common;
 using EventMaker.Handler;
+using EventMaker.Persistency;
 
 namespace EventMaker.ViewModel
 {
@@ -51,7 +52,10 @@ namespace EventMaker.ViewModel
 
             /*RelayCommand og refrence til handler*/
             eventHandler = new myEventHandler(this);
+
             CreateEventCommand = new RelayCommand(eventHandler.CreateEvent, null);
+
+            PersistencyService.HentDataFraDiskAsync();
 
         }
 
