@@ -39,6 +39,29 @@
 
         <Grid Grid.Column="0" Grid.Row="1">
             <ListView SelectedItem="{Binding SelectedEvent, Mode=TwoWay}" ItemsSource="{Binding Eventsingelton.Events}" Header="Events">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <StackPanel>
+                                <TextBlock FontWeight="Bold" Text="Event Id:"></TextBlock>
+                                <TextBlock x:Name="id" Text="{Binding Id}"></TextBlock>
+                                
+                                <TextBlock FontWeight="Bold" Text="Event Name"></TextBlock>
+                                <TextBlock x:Name="name" Text="{Binding Name}"></TextBlock>
+
+                                <TextBlock FontWeight="Bold" Text="Event Description"></TextBlock>
+                                <TextBlock x:Name="Desc" Text="{Binding Description}"></TextBlock>
+
+                                <TextBlock FontWeight="Bold" Text="Event Location"></TextBlock>
+                                <TextBlock x:Name="place" Text="{Binding Place}"></TextBlock>
+
+                                <TextBlock FontWeight="Bold" Text="Event Date and Time"></TextBlock>
+                                <TextBlock x:Name="dateTime" Text="{Binding DateTime}"></TextBlock>
+                            </StackPanel>
+                        </Grid>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
             </ListView>
         </Grid>
 
