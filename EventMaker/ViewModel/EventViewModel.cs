@@ -71,9 +71,23 @@ namespace EventMaker.ViewModel
          
 
             CreateEventCommand = new RelayCommand(eventHandler.CreateEvent, null);
-            DeleteEventComand = new RelayCommand(eventHandler.DeleteEvent, null);
+            DeleteEventComand = new RelayCommand(eventHandler.DeleteEvent, checkOmListenErEmpty);
             PersistencyService.HentDataFraDiskAsync();
 
+        }
+
+
+        public bool checkOmListenErEmpty()
+        {
+            if (EventCatalogSingleton.Instance.Events.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+           
         }
 
         protected virtual void OnPropertyChanged(string propertyName)

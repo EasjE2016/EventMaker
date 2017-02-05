@@ -45,7 +45,7 @@
         <Grid Grid.Column="1" Grid.Row="1">
             
             <TextBlock  Text="{Binding SelectedEvent}"></TextBlock>
-            <Button Command="{Binding DeleteEventComand}"></Button>
+            <Button Content="Delete" Command="{Binding DeleteEventComand}"></Button>
         </Grid>
 
     </Grid>
